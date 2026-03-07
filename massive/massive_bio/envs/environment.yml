@@ -1,0 +1,13 @@
+name: bioinfo_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - snakemake
+  - nanoplot    
+  - biopython  
+  - pandas
+  - matplotlib
+  - seaborn

@@ -1,0 +1,5 @@
+bio_venv/
+data/*.fastq.gz
+result/
+__pycache__/
+.snakemake/

@@ -1,0 +1,20 @@
+
+rule all:
+    input:
+        "result/summary_plots.png"
+
+rule calculate_metrics:
+    input:
+        fastq = "data/barcode77.fastq.gz"
+    output:
+        csv = "result/metrics.csv"
+    shell:
+        "python scripts/main.py {input.fastq} {output.csv}"
+
+rule visualize_results:
+    input:
+        csv = "result/metrics.csv"
+    output:
+        png = "result/summary_plots.png"
+    shell:
+        "python scripts/visual.py {input.csv} {output.png}" 
