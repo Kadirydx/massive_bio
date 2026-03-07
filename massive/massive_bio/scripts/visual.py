@@ -7,23 +7,22 @@ def ploter(csv_input, image_output):
     df = pd.read_csv(csv_input)
     plt.figure(figsize=(18, 6))
     
-    # --- 1. Grafik: GC İçeriği ---
+    # C İçeriği 
     plt.subplot(1, 3, 1)
     sns.histplot(df['GC_Content'], kde=True, color='blue')
     plt.title(f"GC Distribution\nMean: {df['GC_Content'].mean():.2f}%")
     plt.xlabel("GC %")
     
-    # --- 2. Grafik: Okuma Uzunlukları (LOG ÖLÇEKLİ) ---
+    # Okuma Uzunlukları logaritmik
     plt.subplot(1, 3, 2)
     sns.histplot(df['Read_Length'], kde=True, color='green')
     
-    # İŞTE SİHİRLİ SATIR: X eksenini logaritmik yapar
     plt.xscale('log') 
     
     plt.title(f"Read Length Distribution (Log Scale)\nMedian: {df['Read_Length'].median():.0f} bp")
     plt.xlabel("Length (bp) - Log Scale")
     
-    # --- 3. Grafik: Kalite Skorları ---
+    #kalite 
     plt.subplot(1, 3, 3)
     sns.histplot(df['Mean_Quality'], kde=True, color='red')
     plt.title(f"Quality Distribution\nMean: {df['Mean_Quality'].mean():.2f}")
